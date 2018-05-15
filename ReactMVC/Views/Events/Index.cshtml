@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ReactMVC.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.program)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datestart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateends)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.program)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datestart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateends)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.eventID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.eventID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.eventID })
+        </td>
+    </tr>
+}
+
+</table>
